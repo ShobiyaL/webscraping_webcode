@@ -2,6 +2,7 @@ const express = require("express");
 var cors = require('cors')
 const PORT = 4001;
 const cheerio = require("cheerio");
+const dotenv = require('dotenv').config()
 const axios = require("axios");
 const { flipkartData} = require('./flipkart');
 const { snapdealData} = require('./snapdeal');
@@ -19,8 +20,8 @@ const client = new MongoClient(dbUrl);
 
 const fetchData = async () => {
   try {
-    const products =["shoes"];
-    // const products = ["shelves", "shirts", "shoes", "electronics", "toys","mobiles","books"];
+    // const products =["shoes"];
+     const products = ["shelves", "shirts", "shoes", "electronics", "toys","mobiles","books"];
     const allProducts = [];
     for (const i of products) {
       console.log(i);
@@ -125,4 +126,4 @@ app.get('/getProduct', async function(req,res){
 })
 
 
-app.listen(process.env.PORT||PORT, () => console.log(`Server running on PORT--${PORT}`));
+app.listen( process.env.PORT || PORT, () => console.log(`Server running on PORT--${PORT}`));
