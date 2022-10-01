@@ -1,6 +1,6 @@
 const express = require("express");
 var cors = require('cors')
-const PORT = 4001;
+const lPORT = 4001;
 const cheerio = require("cheerio");
 const dotenv = require('dotenv').config()
 const axios = require("axios");
@@ -126,4 +126,4 @@ app.get('/getProduct', async function(req,res){
 })
 
 
-app.listen( process.env.PORT || PORT, () => console.log(`Server running on PORT--${PORT}`));
+app.listen( process.env.PORT||lPORT, () => console.log(`Server running on PORT--${lPORT}`));
